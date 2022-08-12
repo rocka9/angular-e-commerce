@@ -2,14 +2,11 @@
   <ul class="articles">
     <li *ngFor="let article of articles"> <!--ngFor iterate through the list of articles-->
       <!--(click): When the user clicks an article in the list, the component should display the selected article's details-->
-      <button [class.selected]="article === selectedArticle" type="button" (click)="onSelect(article)" >  <!--(click) is an event binding-->
-        <span class="idi">{{article.id}}</span>
-        <span class="name">{{article.name}}</span>
-        <span class="price">{{article.price}}</span>
-      </button>
+      <a routerLink="/detail/{{article.id}}">
+        <span class="idi">{{article.id}}</span> {{article.name}}
+      </a>
     </li>
   </ul>
 
   <!-- Binding the ArticlesComponent.selectedArticle to the element's article-->
-  <app-article-detail [article]="selectedArticle"></app-article-detail>
 

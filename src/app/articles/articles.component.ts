@@ -4,9 +4,6 @@ import { Article } from '../model/article';
 // Import ARTICLES from ArticlesComponent
 import { ArticleService } from '../article.service';
 
-// adding message to article service
-import { MessageService } from '../message.service';
-
 @Component({
   selector: 'app-articles', // The component's CSS element selector.
   templateUrl: './articles.component.html', // The location of the component's template file.
@@ -18,23 +15,12 @@ export class ArticlesComponent implements OnInit {
 
 
   articles : Article[] = [];  // expose the ARTICLES array for binding.
-  // article property
-  article: Article = {
-    id:1,
-    name: "Jean",
-    price: "60 euros"
-}
-  constructor( private articleService : ArticleService, private messageService: MessageService) { }
+
+  constructor( private articleService : ArticleService) { }
 
   // calling method getHeroes()
   ngOnInit(): void {
     this.getArticles();
-  }
-
-  // event binding on selected article
-  selectedArticle?: Article;
-  onSelect(article: Article): void {
-    this.selectedArticle = article;
   }
 
   // Retrieving the article from the service

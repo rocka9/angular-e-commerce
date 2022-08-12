@@ -1,4 +1,12 @@
 <h1>{{title}}</h1>
 <!--{{}} are called text interpolation binding-->
 
-<app-articles></app-articles>  <!--show the ArticlesComponent view-->
+<!-- navigation link using routerLink-->
+<nav>
+  <!--Allows user to navigate between the DashboardComponent and the ArticlesComponent by clicking links in the navigation area near the top of the page-->
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/articles">Articles</a>
+</nav>
+  <!--show the ArticlesComponent view-->
+<router-outlet></router-outlet>
+<app-messages></app-messages>

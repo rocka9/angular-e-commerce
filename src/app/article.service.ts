@@ -7,15 +7,21 @@ import { ARTICLES } from './list-articles';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class ArticleService {
+@Injectable({providedIn: 'root'})
 
-  getArticles() : Observable< Article[] > {  // getArticles method return list of articles
-    const articles = of(ARTICLES); // of(ARTICLES) returns an Observable<Article[]> that emits a single value, the array of list heroes.
-    this.messageService.add('ArticleService: fetched articles'); // send a message from ArticleService
+export class ArticleService {
+  constructor(private messageService: MessageService) { }
+
+  getArticles(): Observable<Article[]> {
+    const articles = of(ARTICLES);
+    this.messageService.add('ArticlesService: fetched articles');
     return articles;
   }
-  constructor(private messageService: MessageService) { }
+
+  getArticle(id: number) : Observable< Article > {
+    const article = ARTICLES.find(article => article.id ===id)!;
+    this.messageService.add(`ArticleService: fetched article id=${id}`); // send a message from ArticleService
+    return of(article);
+  }
+
 }
