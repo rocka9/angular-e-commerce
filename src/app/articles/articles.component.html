@@ -10,17 +10,6 @@
     </li>
   </ul>
 
- <!--show the article
-  The article details should only be displayed when a hero is selected
-  *ngIf directive the hero details. This directive tells Angular to render the section only when the selectedArticle is defined after it has been selected by clicking on a article
--->
+  <!-- Binding the ArticlesComponent.selectedArticle to the element's article-->
+  <app-article-detail [article]="selectedArticle"></app-article-detail>
 
- <div *ngIf="selectedArticle">
-  <h2>{{selectedArticle.name | uppercase}} Details</h2>
-  <div> id: {{selectedArticle.id}}</div>
-  <div>
-    <label for="name">Article name: </label>
-    <input id="name" [(ngModel)]="article.name" placeholder="name">
-  </div>
-  <div> Price: {{selectedArticle.price}}</div>
-</div>

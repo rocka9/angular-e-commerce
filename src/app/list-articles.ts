@@ -11,6 +11,6 @@ export const ARTICLES: Article[] = [
   { id: 9, name: "Ensemble enfant", price: "10 euros"},
   { id: 10, name: "Doudoune", price: "10 euros"},
   { id: 11, name: "Manteau", price: "10 euros"},
-  { id: 12, name: "veste lin", price: "10 euros"},
-  { id: 13, name: "Vhemise été", price: "10 euros"}
+  { id: 12, name: "Veste lin", price: "10 euros"},
+  { id: 13, name: "Chemise été", price: "10 euros"}
 ]

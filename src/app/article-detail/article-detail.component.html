@@ -1,0 +1,15 @@
+
+ <!--show the article
+  The article details is shown for any article article and not only the selectedArticle
+  *ngIf directive the hero details.
+-->
+
+<div *ngIf="article">
+  <h2>{{article.name | uppercase}} Details</h2>
+  <div> id: <span>{{article.id}}</span></div>
+  <div>
+    <label for="name">Article name: </label>
+    <input id="name" [(ngModel)]="article.name" placeholder="name">
+  </div>
+  <div> Price: <span>{{article.price}}</span></div>
+</div>
