@@ -1,7 +1,26 @@
- <!--show the article-->
- <h2>{{article.name | uppercase}} Details</h2>
+ <h2> Mes Articles </h2>
+  <ul class="articles">
+    <li *ngFor="let article of articles"> <!--ngFor iterate through the list of articles-->
+      <!--(click): When the user clicks an article in the list, the component should display the selected article's details-->
+      <button [class.selected]="article === selectedArticle" type="button" (click)="onSelect(article)" >  <!--(click) is an event binding-->
+        <span class="idi">{{article.id}}</span>
+        <span class="name">{{article.name}}</span>
+        <span class="price">{{article.price}}</span>
+      </button>
+    </li>
+  </ul>
 
- <div>
-  <label for="name">Article name: </label>
-  <input id="name" [(ngModel)]="article.name" placeholder="name">
+ <!--show the article
+  The article details should only be displayed when a hero is selected
+  *ngIf directive the hero details. This directive tells Angular to render the section only when the selectedArticle is defined after it has been selected by clicking on a article
+-->
+
+ <div *ngIf="selectedArticle">
+  <h2>{{selectedArticle.name | uppercase}} Details</h2>
+  <div> id: {{selectedArticle.id}}</div>
+  <div>
+    <label for="name">Article name: </label>
+    <input id="name" [(ngModel)]="article.name" placeholder="name">
+  </div>
+  <div> Price: {{selectedArticle.price}}</div>
 </div>
